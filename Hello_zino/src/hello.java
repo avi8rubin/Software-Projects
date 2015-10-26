@@ -28,7 +28,7 @@ public class hello {
 			System.err.println("Connection to Database failed:"+e.getMessage());
 			e.printStackTrace();
 		}
-		//new//
+		
 		try {
 			st =  conn.createStatement();
 		} catch (SQLException e) {
