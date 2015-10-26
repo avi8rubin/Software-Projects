@@ -29,7 +29,7 @@ public class main {
 			System.err.println("Connection to Database failed:"+e.getMessage());
 			e.printStackTrace();
 		}
-		
+		///////////////////////ohad /////////////
 		try {
 			st =  conn.createStatement();
 		} catch (SQLException e) {
