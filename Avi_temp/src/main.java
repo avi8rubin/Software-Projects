@@ -7,7 +7,7 @@ import java.sql.Statement;
 //import com.mysql.jdbc.Statement;
 
 
-
+/////////////avi//////////////////////////////////////////
 public class main {
 	static Connection conn = null;
 	static Statement st = null;
