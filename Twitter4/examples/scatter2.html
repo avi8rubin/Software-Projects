@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<h1 align = "center"> Negative </h1>
+</head>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<style>
+  text {
+    font: 12px sans-serif;
+  }
+  .axis path, .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+  circle.point {
+    fill: steelblue;
+    stroke: black;
+	
+  }
+  div.tooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 60px;					
+    height: 28px;					
+    padding: 2px;				
+    font: 12px sans-serif;		
+    background: lightsteelblue;	
+    border: 0px;		
+    border-radius: 8px;			
+    pointer-events: none;	
+</style>
+<script>
+
+var margin = {top: 5, right: 80, bottom: 30, left: 80},
+    width = 800 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom;
+
+var chartData = [
+  {name: "AB", group: " ", number: 1},
+  {name: "ABC", group: "12-19", number: 0.6},
+  {name: "BC", group: "19-22", number: 0.5},
+  {name: "BCD", group: "23-29", number: 0.3},
+  {name: "BCDE", group: "30+", number: 0.3},
+  {name: "BCDET", group: "", number: 0.3}
+];
+
+var chartPointSize = [50,75,20,50]
+var lkUp = {};
+chartData.forEach(function(d) { lkUp[d.name] = {group: d.group}; });
+
+var formatPercent = d3.format(".0%");
+
+var x = d3.scale.ordinal()
+      .domain(chartData.map(function(d) { return d.name; }))
+      .rangePoints([0, width]),
+    y = d3.scale.linear()
+      .domain([0, d3.max(chartData, function(d) { return d.number; })])
+      .range([height, 0]),
+    xAxis = d3.svg.axis()
+      .scale(x)
+      .tickFormat(function(d) { return lkUp[d].group; })
+      .orient("bottom"),
+    yAxis = d3.svg.axis()
+      .scale(y)
+      .orient("left")
+	  .tickFormat(formatPercent);
+	  
+	  var div = d3.select("body").append("div")	
+    .attr("class", "tooltip")				
+    .style("opacity", 0);
+
+var svg = d3.select("body")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.selectAll("circle.point")
+    .data(chartData)
+  .enter().append("circle")
+       	
+    .attr({
+      "class": "point",
+      cx: function(d) { return x(d.name); },
+      cy: function(d) { return y(d.number); },
+      r: function(d) {
+	  console.log(d);
+	  if(d.name =="AB" || d.name=="BCDET") return 0;
+	  if(d.name =="ABC") return chartPointSize[0];
+	  if(d.name =="BC") return chartPointSize[1];
+	  if(d.name =="BCD") return chartPointSize[2];
+	  if(d.name =="BCDE") return chartPointSize[3];
+	  else return 5; }
+    })
+	
+	   .on("mouseover", function(d) {		
+            div.transition()		
+                .duration(200)		
+                .style("opacity", .9);		
+            div	.html("rrrr" + "<br/>"  + "333	")	
+                .style("left", (d3.event.pageX) + "px")		
+                .style("top", (d3.event.pageY - 28) + "px");	
+            })
+	   .on("mouseout", function(d) {		
+            div.transition()		
+                .duration(500)		
+                .style("opacity", 0);	
+        });	
+
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+
+svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis);
+
+</script>
