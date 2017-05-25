@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+ <p align="center" > This is Buuble chart represnt dog type vs dog repeat and ang <br/> 
+	Every bubble describe dog types 
+	<br/>
+	Every buuble size is by dog age
+ </p>
+</head>
+
+<style>
+body {
+  font: 11px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.dot {
+  stroke: #000;
+  opacity : 0.8;
+}
+
+.tooltip {
+  position: absolute;
+  width: 200px;
+  height: 28px;
+  pointer-events: none;
+}
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<script>
+
+
+
+var r_size = 8;
+var dogs =[
+]
+var margin = {top: 20, right: 120, bottom: 130, left: 40},
+    width = 1500 - margin.left - margin.right,
+    height = 600	- margin.top - margin.bottom;
+var index =1;
+var index2 = 1;
+
+// setup x 
+var xValue = function(d) { return d["ID"];}, // data -> value
+    xScale = d3.scale.linear().range([0, width]), // value -> display
+    xMap = function(d) { return xScale(xValue(d));}, // data -> display
+    xAxis = d3.svg.axis().scale(xScale).orient("bottom");
+
+// setup y
+var yValue = function(d) {return d["Damount"];}, // data -> value
+    yScale = d3.scale.linear().range([height, 0]), // value -> display
+    yMap = function(d) { return yScale(yValue(d));}, // data -> display
+    yAxis = d3.svg.axis().scale(yScale).orient("left");
+
+var Cyl = function(d) { return 6;}; // data -> value	
+	
+// setup fill color
+var color = d3.scale.category20b();
+/*
+var color = d3.scale.linear()
+    .domain([0, 15,150])
+    .range(['#930F16',  '#228B22']); 
+	*/
+// add the graph canvas to the body of the webpage
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+// add the tooltip area to the webpage
+var tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+// load data
+d3.csv("dogdata.csv", function(error, data) {
+
+  // change string (from CSV) into number format
+  data.forEach(function(d) {
+
+    //d.Calories = +d.Calories;
+	//d.Cyl = +d.Cyl;
+    ///d["HP"] = +d["HP"];
+    //console.log(d["DOGTYPE"]);
+  });
+
+  // don't want dots overlapping axis, so add in buffer to data domain
+  xScale.domain([0, 21]);
+  yScale.domain([0, 1550]);
+
+  // x-axis
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+    .append("text")
+      .attr("class", "label")
+      .attr("x", width)
+      .attr("y", -6)
+      .style("text-anchor", "end")
+      .text("Dog Types");
+
+  // y-axis
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("class", "label")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Return to Health care");
+
+	  
+	  
+	  
+function returnName(x)
+{
+
+//console.log((data[x-1])["DOGTYPE"]);
+
+return (data[x-1])["DOGTYPE"];
+
+}	  
+	  
+  // draw dots
+  svg.selectAll(".dot")
+      .data(data)
+    .enter().append("circle")
+      .attr("class", "dot")
+      .attr("r", function (d) {  return 10*d["age"]; })
+      .attr("cx", xMap)
+      .attr("cy", yMap)
+      .style("fill", function (d) {  /*console.log(d["Damount"]); */ return color(d["ID"]) }) 
+	  //mouseover
+      .on("mouseover", function(d) {
+	  d3.select(this)
+
+	  .attr("r", function (d) {  return 15*d["age"]; }).style("fill", "red");
+          tooltip.transition()
+               .duration(200)
+               .style("opacity", .9);
+          tooltip.html("<b>Dog Type = "+d["DOGTYPE"] + "<br/> " +"Amount of returns = "+ yValue(d)
+						+"<br/> " +"Age = "+ d["age"] + " years"
+		  )
+               .style("left", (d3.event.pageX -20) + "px")
+               .style("top", (d3.event.pageY - 80) + "px");
+      })
+	  // mouseout
+      .on("mouseout", function(d) {
+          tooltip.transition()
+               .duration(500)
+               .style("opacity", 0);
+	 	   
+	d3.select(this)  
+	  .attr("r", d["age"]).style("fill", function (d) {  return color(d["ID"]) }) 
+	  .attr("r",function (d) {  return 10*d["age"]; })
+	  }
+	  
+	  
+	  );
+
+
+  // draw legend
+  var legend = svg.selectAll(".legend")
+      .data(color.domain())
+    .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  // draw legend colored rectangles
+  legend.append("rect")
+      .attr("x", width +100)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", color);
+	  
+
+
+  // draw legend text
+  legend.append("text")
+      .attr("x", width +100)
+      .attr("y", 9)
+      .attr("dy", ".35em")
+      .style("text-anchor", "end")
+      .text(function(d) { 
+	// console.log(d)
+	  return returnName(d) ;
+	  
+	  } 
+	  )
+});
+
+
+
+		var arc = d3.svg.symbol().type('circle')
+					.size(function(d){ return 5*scale(d); });
+
+		var data = [0.8,1.6,3,4.5,5.5];
+
+		var scale = d3.scale.linear()
+						.domain([1,6])
+						.range([100,1000]);
+
+		var colorscale = d3.scale.linear()
+							.domain([0,7])
+							.range(["red","steelblue"]);
+
+		var group = svg.append('g')
+					.attr('transform','translate('+ (width/2 -83) +','+ 500 +')');
+
+		var line = group.selectAll('path')
+				.data(data)
+				.enter()
+				.append('path')
+				.attr('d',arc)
+				.attr('fill',function(d){ return colorscale(d); })
+				.attr('stroke','#000')
+				.attr('stroke-width',1)
+				.attr('transform',function(d,i){ return "translate("+(i*100)+","+(40)+")"; });
+				
+
+				
+
+</script>
+</body>
+  <pre align="center" >Dog Age in Years:     1                1.5              2               2.2              3
+ </pre>
+</html>
