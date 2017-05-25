@@ -1,0 +1,321 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Nvd3 - reusable charts for D3.js</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js" charset="utf-8"></script>
+    <script src="../build/nv.d3.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.rawgit.com/isagalaev/highlight.js/8.4/src/styles/tomorrow.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/languages/javascript.min.js"></script>
+
+    <script>
+
+        function expandall(name) {
+            $('#ul_' + name).show().find("li").click();
+        }
+
+        function expandchart(name) {
+            $('#ul_' + name).toggle();
+        }
+
+        function parse_options(container, obj) {
+            var t = obj.name;
+            var extra = obj.note;
+
+            var op = $('<li>');
+            if (extra !== undefined) {
+                t += ' <span class="inherited">' + extra + '</span>';
+            }
+            op.addClass('option');
+            op.prop('name', obj.name);
+            op.html(t);
+            container.append(op);
+        }
+
+        function getProps(obj, key) {
+            var props = [];
+            if (obj.hasOwnProperty(key)) {
+                var _obj = obj[key];
+                if (typeof _obj === 'object') {
+                    props.push.apply(props, Object.keys(_obj));
+                }
+            }
+            return props;
+        }
+
+        $('body').ready(function () {
+            var charts = [
+                'pieChart',
+                'lineChart',
+                'parallelCoordinatesChart',
+                'scatterChart',
+                'stackedAreaChart',
+                'sparklinePlus',
+                'multiChart',
+                'multiBarHorizontalChart',
+                'multiBarChart',
+                'lineWithFocusChart',
+                'linePlusBarChart',
+                'historicalBarChart',
+                'discreteBarChart',
+                'cumulativeLineChart',
+                'bulletChart',
+                'ohlcBarChart',
+                'boxPlotChart',
+                'sunburstChart',
+                'candlestickBarChart'
+            ].sort();
+            var parts = [
+                'line',
+                'axis',
+                'bullet',
+                'scatter',
+                'ohlcBar',
+                'pie',
+                'historicalBar',
+                'multiBarHorizontal',
+                'multiBar',
+                'legend',
+                'tooltip',
+                'boxPlot',
+                'candlestickBar',
+                'sparkline',
+                'discreteBar',
+                'sunburst',
+                'parallelCoordinates'
+            ].sort();
+            var c = $('#optionlist');
+            var jump = $('#optionjump');
+            charts = charts.concat(parts);
+
+            // loop through chart options, build the list of options for each
+            for (var i in charts) {
+                var name = charts[i];
+                if (nv.models[name]) {
+                    var chart = nv.models[name]();
+
+                    // add the chart object name, and jump link to it
+                    c.append("<h3 class='option' id='" + name + "'>" + name + " <span class='expand'>[ <a href=\"javascript:expandchart('" + name + "')\">toggle</a> | <a href=\"javascript:expandall('" + name + "')\">toggle options</a> | <a href='#'>Top</a> ]</span></h3>");
+                    jump.append("<div><a href='#" + name + "'>" + name + "</a></div>");
+
+                    // build list of sub-components for this chart object
+                    var props = Object.getOwnPropertyNames(chart);
+                    var propdom = $('<div></div>').addClass('propdom');
+                    var proplist = {};
+                    var dispatchList = [];
+
+                    for (var p in props) {
+                        try {
+                            var prop = chart[props[p]];
+                            if ((prop instanceof Object) && !(prop instanceof Array) && prop._options) {
+                                proplist[props[p]] = props[p];
+                            }
+                        } catch(e) {}
+                    }
+
+                    // only add sub-component list if some exist.
+                    if (Object.keys(proplist).length > 0) {
+                        propdom.append($('<span class="label">Components: </span>'));
+                        var pstrings = [];
+                        for (var p in proplist) {
+                            pstrings.push('<span class="prop">' + p + '</span>');
+                        }
+                        propdom.append($(pstrings.join(', ')));
+                    }
+
+                    // add event dispatchers by the chart;
+                    dispatchList = getProps(chart, 'dispatch');
+                    if (dispatchList.length) {
+                        propdom.append($('<br/>'));
+                        propdom.append($('<span class="label">Events: </span>'));
+                        var dispatchString = dispatchList.map(function(dispatcherName) {
+                            return '<span class="event">' + dispatcherName + '</span>';
+                        }).join(' ');
+                        propdom.append(dispatchString);
+                    }
+
+                    if (propdom.children().length) {
+                        propdom.addClass('populated');
+                        c.append(propdom);
+                    }
+
+                    // build the list of options for this chart object
+                    var ul = $('<ul id="ul_' + name +'">');
+
+                    // collect all the options
+                    var alloptions = {};
+                    if (chart._options) {
+                        var ops = Object.getOwnPropertyNames(chart._options);
+                        for (var t in ops) {
+                            alloptions[ops[t]] = {name: ops[t]}
+                        }
+                    }
+                    if (chart._inherited) {
+                        for (var j2 in chart._inherited) {
+                            var op = chart._inherited[j2];
+                            if (chart._options[op] === undefined) {
+                                alloptions[op] = {name: op, note: '(inherited)'};
+                            }
+                        }
+                    }
+                    if (chart._d3options) {
+                        for (var j3 in chart._d3options) {
+                            var op2 = chart._d3options[j3];
+                            alloptions[op2] = {name: op2, note: '(inherited from D3)'}
+                        }
+                    }
+
+                    // now print the all out in alphabetical order
+                    var alpha = Object.keys(alloptions).sort();
+                    for (var j4 in alpha) {
+                        // ignore internal options (start with an underscore)
+                        if (alpha[j4].substring(0, 1) !== '_') {
+                            parse_options(ul, alloptions[alpha[j4]]);
+                        }
+                    }
+
+                    // append the list of options to the dom
+                    c.append(ul);
+                } else {
+                    console.log('Chart missing: ', name);
+                }
+            }
+
+            // set each option so if it's clicked, it will build and display the option information
+            $('.option').click(function(evt) {
+                var a = $(evt.target);
+                var name = a.prop('name');
+
+                // trigger only for li, not child dom
+                if (!a.is('li')) return;
+
+                if (a.find('.option-info').length) {
+                    a.removeClass('option-selected');
+                    a.find('.option-info').remove();
+                } else {
+                    a.addClass('option-selected');
+                    var info = '';
+                    if (option_info[name]) {
+
+
+
+                        var desc = option_info[name]['desc'];
+                        var def;
+                        // if defaultValueGetter exists, it is a function to pull the actual default value from an instance of the chart
+                        if (option_info[name]['defaultValueGetter']) {
+                            var chartName = a.parent().attr('id').substring(3); // first 3 chars are a 'ul_' appended to the chart name
+                            def = JSON.stringify(option_info[name]['defaultValueGetter'](nv.models[chartName]()), null, 1);
+                        } else {
+                            def = option_info[name]['default'];
+                        }
+                        var ex = option_info[name]['examples'];
+                        var refs = option_info[name]['refs'] || [];
+                        var example_obj = option_info[name]['example_object'] || 'chart';
+                        var examples = [];
+                        var inputs = [];
+
+                        // process examples
+                        for (var i in ex) {
+                            var e = ex[i];
+                            var etype = e instanceof Array ? 'array' : typeof e;
+                            if (inputs.indexOf(etype) < 0) {
+                                inputs.push(etype);
+                            }
+                            if (etype == 'object' || etype == 'array' || etype == 'string')
+                                e = JSON.stringify(e);
+                            if (etype == 'function') {
+                                // if function, remove the first 20 spaces in each line
+                                // due to indention in the info object
+                                e = e.toString().replace(/(\r\n|\n|\r)\s{16}/gm,'\n');
+                            }
+                            examples.push(example_obj + '.' + name + '(' + $('<div/>').text(e).html() + ')');
+                        }
+
+                        // build html of other option info
+                        if (desc) {
+                            info += "<div class='part'>Description:</div>";
+                            info += "<div>" + desc + "</div>";
+                            for (var r in refs) {
+                                info += '<div><a target="nvref" href="' + refs[r] + '">' + refs[r] + '</a></div>';
+                            }
+                        }
+                        if (inputs.length) {
+                            info += "<div class='part'>Input Type(s):</div>";
+                            info += "<div>" + inputs.join(' or ') + "</div>";
+                        }
+                        if (def !== undefined) {
+                            info += "<div class='part'>Default:</div>";
+                            info += "<div>" + def + "</div>";
+                        }
+                        if (examples.length) {
+                            info += "<div class='part'>Example(s):</div>";
+                            info += "<div class='example'><code class='javascript'>" + examples.join("</code><code class='javascript'>") + "</code></div>";
+                        }
+                    } else {
+                        info = 'No info for this option yet...';
+                    }
+                    a.append('<div class="option-info">' + info + '</div>');
+                    a.find('code').each(function(i, block) {
+                        hljs.highlightBlock(block);
+                    });
+                }
+            });
+        });
+    </script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+</head>
+<body>
+
+<header>
+    <h1>Twitter</h1>
+    <p>Avi rubin & Ohad zino project</p>
+</header>
+
+<div id="banner">
+    <div>
+
+       <a href="site.html" class="button fork docs selected"><strong>Diagrams</strong></a>
+		  <a href="../examples/dashbord/index.html" class="button fork docs selected"><strong>dashbord</strong></a>
+        <a href="documentation1.html" class="button fork docs"><strong>Project documentation</strong></a>
+ 
+        </div>
+    </div>
+</div><!-- end banner -->
+
+<div class="wrapper">
+    <nav>
+        <ul></ul>
+    </nav>
+    <section>
+        <h3>
+            Twitter Documentation
+        </h3>
+
+        <p>
+           This page contains documentation about the project, its design and planning
+			You can see the overall structure of the project
+        </p>
+
+        <h3>Software Design Pattern </h3>
+		
+		<img src="pic.png" alt="Mountain View" style="width:700px;height:400px;">
+		<h3>Software Design Pattern </h3>
+		<img src="pic.png" alt="Mountain View" style="width:304px;height:228px;">
+   
+
+    </section>
+</div>
+
+
+</body>
+</html>
