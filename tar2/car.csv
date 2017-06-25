@@ -1,0 +1,429 @@
+Cereal Name,Manufacturer,Type,Calories,HP,Cyl
+Acura 3.5 RL 4dr,r,C,225,24,6
+Acura 3.5 RL w/Navigation 4dr,r,C,225,24,6
+Acura MDX,r,C,265,23,6
+Acura NSX coupe 2dr manual S,s,C,290,24,6
+Acura RSX Type S 2dr,r,C,200,31,4
+Acura TL 4dr,r,C,270,28,6
+Acura TSX 4dr,r,C,200,29,4
+Audi A4 1.8T 4dr,r,C,170,31,4
+Audi A4 3.0 4dr,r,C,220,28,6
+Audi A4 3.0 convertible 2dr,r,C,220,27,6
+Audi A4 3.0 Quattro 4dr auto,r,C,220,25,6
+Audi A4 3.0 Quattro 4dr manual,r,C,220,26,6
+Audi A4 3.0 Quattro convertible 2dr,r,C,220,25,6
+Audi A41.8T convertible 2dr,r,C,170,30,4
+Audi A6 2.7 Turbo Quattro 4dr,r,C,250,25,6
+Audi A6 3.0 4dr,r,C,220,27,6
+Audi A6 3.0 Avant Quattro,w,C,220,25,6
+Audi A6 3.0 Quattro 4dr,r,C,220,25,6
+Audi A6 4.2 Quattro 4dr,r,C,300,24,8
+Audi A8 L Quattro 4dr,r,C,330,24,8
+Audi RS 6 4dr,s,C,450,22,8
+Audi S4 Avant Quattro,w,C,340,21,8
+Audi S4 Quattro 4dr,r,C,340,20,8
+Audi TT 1.8 convertible 2dr (coupe),s,C,180,28,4
+Audi TT 1.8 Quattro 2dr (convertible),s,C,225,28,4
+Audi TT 3.2 coupe 2dr (convertible),s,C,250,29,6
+BMW 325Ci 2dr,r,C,184,29,6
+BMW 325Ci convertible 2dr,r,C,184,27,6
+BMW 325i 4dr,r,C,184,29,6
+BMW 325xi 4dr,r,C,184,27,6
+BMW 325xi Sport,w,C,184,26,6
+BMW 330Ci 2dr,r,C,225,30,6
+BMW 330Ci convertible 2dr,r,C,225,28,6
+BMW 330i 4dr,r,C,225,30,6
+BMW 330xi 4dr,r,C,225,29,6
+BMW 525i 4dr,r,C,184,28,6
+BMW 530i 4dr,r,C,225,30,6
+BMW 545iA 4dr,r,C,325,26,8
+BMW 745i 4dr,r,C,325,26,8
+BMW 745Li 4dr,r,C,325,26,8
+BMW M3 convertible 2dr,s,C,333,23,6
+BMW M3 coupe 2dr,s,C,333,24,6
+BMW X3 3.0i,r,C,225,23,6
+BMW X5 4.4i,r,C,325,22,8
+BMW Z4 convertible 2.5i 2dr,s,C,184,28,6
+BMW Z4 convertible 3.0i 2dr,s,C,225,29,6
+Buick Century Custom 4dr,r,C,175,30,6
+Buick LeSabre Custom 4dr,r,C,205,29,6
+Buick LeSabre Limited 4dr,r,C,205,29,6
+Buick Park Avenue 4dr,r,C,205,29,6
+Buick Park Avenue Ultra 4dr,r,C,240,28,6
+Buick Rainier,r,C,275,21,6
+Buick Regal GS 4dr,r,C,240,28,6
+Buick Regal LS 4dr,r,C,200,30,6
+Buick Rendezvous CX,r,C,185,26,6
+Cadillac CTS VVT 4dr,r,C,255,25,6
+Cadillac Deville 4dr,r,C,275,26,8
+Cadillac Deville DTS 4dr,r,C,300,26,8
+Cadillac Escalade EXT,r,C,345,17,8
+Cadillac Escaladet,r,C,295,18,8
+Cadillac Seville SLS 4dr,r,C,275,26,8
+Cadillac SRX V8,r,C,320,21,8
+Cadillac XLR convertible 2dr,s,C,320,25,8
+Chevrolet Astro,r,C,190,17,6
+Chevrolet Avalanche 1500,r,C,295,18,8
+Chevrolet Aveo 4dr,r,C,103,34,4
+Chevrolet Aveo LS 4dr hatch,r,C,103,34,4
+Chevrolet Cavalier 2dr,r,C,140,37,4
+Chevrolet Cavalier 4dr,r,C,140,37,4
+Chevrolet Cavalier LS 2dr,r,C,140,37,4
+Chevrolet Colorado Z85,r,C,175,23,4
+Chevrolet Corvette 2dr,s,C,350,25,8
+Chevrolet Corvette convertible 2dr,s,C,350,25,8
+Chevrolet Impala 4dr,r,C,180,32,6
+Chevrolet Impala LS 4dr,r,C,200,30,6
+Chevrolet Impala SS 4dr,r,C,240,28,6
+Chevrolet Malibu 4dr,r,C,145,34,4
+Chevrolet Malibu LS 4dr,r,C,200,30,6
+Chevrolet Malibu LT 4dr,r,C,200,32,6
+Chevrolet Malibu Maxx LS,w,C,200,30,6
+Chevrolet Monte Carlo LS 2dr,r,C,180,32,6
+Chevrolet Monte Carlo SS 2dr,r,C,200,28,6
+Chevrolet Silverado 1500 Regular Cab,r,C,200,21,6
+Chevrolet Silverado SS,r,C,300,17,8
+Chevrolet SSR,r,C,300,19,8
+Chevrolet Suburban 1500 LT,r,C,295,18,8
+Chevrolet Tahoe LT,r,C,295,18,8
+Chevrolet Tracker,r,C,165,22,6
+Chevrolet TrailBlazer LT,r,C,275,21,6
+Chevrolet Venture LS,r,C,185,26,6
+Chrvsler PT Cruiser GT 4dr,r,C,220,27,4
+Chrysler 300M 4dr,r,C,250,27,6
+Chrysler 300M Special Edition 4dr,r,C,255,27,6
+Chrysler Concorde LX 4dr,r,C,200,29,6
+Chrysler Concorde LXi 4dr,r,C,232,27,6
+Chrysler Crossfire 2dr,s,C,215,25,6
+Chrysler Pacifica,w,C,250,23,6
+Chrysler PT Cruiser 4dr,r,C,150,29,4
+Chrysler PT Cruiser Limited 4dr,r,C,150,29,4
+Chrysler Sebring 4dr,r,C,150,30,4
+Chrysler Sebring convertible 2dr,r,C,150,30,4
+Chrysler Sebring Limited convertible 2dr,r,C,200,28,6
+Chrysler Sebring Touring 4dr,r,C,200,28,6
+Chrysler Town and Country Limited,r,C,215,25,6
+Chrysler Town and Country LX,r,C,180,26,6
+CMC Yukon 1500 SLE,r,C,285,19,8
+Dodge Caravan SE,r,C,150,26,4
+Dodge Dakota Club Cab,r,C,210,22,6
+Dodge Dakota Regular Cab,r,C,210,22,6
+Dodge Durango SLT,r,C,230,21,8
+Dodge Grand Caravan SXT,r,C,215,25,6
+Dodge Intrepid ES 4dr,r,C,232,27,6
+Dodge Intrepid SE 4dr,r,C,200,29,6
+Dodge Neon SE 4dr,r,C,132,36,4
+Dodge Neon SXT 4dr,r,C,132,36,4
+Dodge Ram 1500 Regular Cab ST,r,C,215,21,6
+Dodge Stratus SE 4dr,r,C,150,28,4
+Dodge Stratus SXT 4dr,r,C,150,28,4
+Dodge Viper SRT-10 convertible 2dr,s,C,500,28,10
+Ford Crown Victoria 4dr,r,C,224,25,8
+Ford Crown Victoria LX 4dr,r,C,224,25,8
+Ford Crown Victoria LX Sport 4dr,r,C,239,25,8
+Ford Escape XLS,r,C,201,23,6
+Ford Excursion 6.8 XLT,r,C,310,23,10
+Ford Expedition 4.6 XLT,r,C,232,19,8
+Ford Explorer XLT V6,r,C,210,20,6
+Ford F-150 Regular Cab XL,r,C,231,19,8
+Ford F-150 Supercab Lariat,r,C,300,18,8
+Ford Focus LX 4dr,r,C,110,36,4
+Ford Focus SE 4dr,r,C,130,33,4
+Ford Focus SVT 2dr,s,C,170,28,4
+Ford Focus ZTW,w,C,130,33,4
+Ford Focus ZX3 2dr hatch,s,C,130,33,4
+Ford Focus ZX5 5dr,r,C,130,33,4
+Ford Freestar SE,r,C,193,23,6
+Ford Mustang 2dr (convertible),r,C,193,29,6
+Ford Mustang GT Premium convertible 2dr,r,C,260,25,8
+Ford Ranger 2.3 XL Regular Cab,r,C,143,29,4
+Ford Taurus LX 4dr,r,C,155,27,6
+Ford Taurus SE,w,C,155,26,6
+Ford Taurus SES Duratec 4dr,r,C,201,26,6
+Ford Thunderbird Deluxe convert w/hardtop 2dr,s,C,280,24,8
+GMC Canyon Z85 SL Regular Cab,r,C,175,24,4
+GMC Envoy XUV SLE,r,C,275,19,6
+GMC Safari SLE,r,C,190,20,6
+GMC Sierra Extended Cab 1500,r,C,285,20,8
+GMC Sierra HD 2500,r,C,300,20,8
+GMC Sonoma Crew Cab,r,C,190,19,6
+GMC Yukon XL 2500 SLT,r,C,325,17,8
+Honda Accord EX 2dr,r,C,160,34,4
+Honda Accord EX V6 2dr,r,C,240,30,6
+Honda Accord LX 2dr,r,C,160,34,4
+Honda Accord LX V6 4dr,r,C,240,30,6
+Honda Civic DX 2dr,r,C,115,38,4
+Honda Civic EX 4dr,r,C,127,37,4
+Honda Civic HX 2dr,r,C,117,44,4
+Honda Civic Hybrid 4dr manual (gas/electric),r,C,93,51,4
+Honda Civic LX 4dr,r,C,115,38,4
+Honda Civic Si 2dr hatch,r,C,160,30,4
+Honda CR-V LX,r,C,160,25,4
+Honda Element LX,r,C,160,24,4
+Honda Insight 2dr (gas/electric),r,C,73,66,3
+Honda Odyssey EX,r,C,240,25,6
+Honda Odyssey LX,r,C,240,25,6
+Honda Pilot LX,r,C,240,22,6
+Honda S2000 convertible 2dr,s,C,240,25,4
+Hummer H2,r,C,316,12,8
+Hyundai Accent 2dr hatch,r,C,103,33,4
+Hyundai Accent GL 4dr,r,C,103,33,4
+Hyundai Accent GT 2dr hatch,r,C,103,33,4
+Hyundai Elantra GLS 4dr,r,C,138,34,4
+Hyundai Elantra GT 4dr,r,C,138,34,4
+Hyundai Elantra GT 4dr hatch,r,C,138,34,4
+Hyundai Santa Fe GLS,r,C,173,26,6
+Hyundai Sonata GLS 4dr,r,C,170,27,6
+Hyundai Sonata LX 4dr,r,C,170,27,6
+Hyundai Tiburon GT V6 2dr,s,C,172,26,6
+Hyundai XG350 4dr,r,C,194,26,6
+Hyundai XG350 L 4dr,r,C,194,26,6
+Infiniti FX35,w,C,280,22,6
+Infiniti FX45,w,C,315,19,8
+Infiniti G35 4dr,r,C,260,26,6
+Infiniti G35 4dr,r,C,260,26,6
+Infiniti G35 Sport Coupe 2dr,r,C,280,26,6
+Infiniti I35 4dr,r,C,255,26,6
+Infiniti M45 4dr,r,C,340,23,8
+Infiniti Q45 Luxury 4dr,r,C,340,23,8
+Isuzu Ascender S,r,C,275,20,6
+Isuzu Rodeo S,r,C,193,21,6
+Jaguar S-Type 3.0 4dr,r,C,235,26,6
+Jaguar S-Type 4.2 4dr,r,C,294,28,8
+Jaguar S-Type R 4dr,r,C,390,24,8
+Jaguar Vanden Plas 4dr,r,C,294,28,8
+Jaguar XJ8 4dr,r,C,294,28,8
+Jaguar XJR 4dr,r,C,390,24,8
+Jaguar XK8 convertible 2dr,s,C,294,26,8
+Jaguar XK8 coupe 2dr,s,C,294,26,8
+Jaguar XKR convertible 2dr,s,C,390,23,8
+Jaguar XKR coupe 2dr,s,C,390,23,8
+Jaguar X-Type 2.5 4dr,r,C,192,26,6
+Jaguar X-Type 3.0 4dr,r,C,227,25,6
+Jeep Grand Cherokee Laredo,r,C,195,21,6
+Jeep Liberty Sport,r,C,150,24,4
+Jeep Wrangler Sahara convertible 2dr,r,C,190,19,6
+Kia Amanti 4dr,r,C,195,25,6
+Kia Optima LX 4dr,r,C,138,30,4
+Kia Optima LX V6 4dr,r,C,170,27,6
+Kia Rio 4dr auto,r,C,104,32,4
+Kia Rio 4dr manual,r,C,104,33,4
+Kia Rio Cinco,w,C,104,33,4
+Kia Sedona LX,r,C,195,22,6
+Kia Sorento LX,r,C,192,19,6
+Kia Spectra 4dr,r,C,124,32,4
+Kia Spectra GS 4dr hatch,r,C,124,32,4
+Kia Spectra GSX 4dr hatch,r,C,124,32,4
+Land Rover Discovery SE,r,C,217,16,8
+Land Rover Freelander SE,r,C,174,21,6
+Land Rover Range Rover HSE,r,C,282,16,8
+Lexus ES 330 4dr,r,C,225,29,6
+Lexus GS 300 4dr,r,C,220,25,6
+Lexus GS 430 4dr,r,C,300,23,8
+Lexus GX 470,r,C,235,19,8
+Lexus IS 300 4dr auto,r,C,215,24,6
+Lexus IS 300 4dr manual,r,C,215,25,6
+Lexus IS 300 SportCross,w,C,215,24,6
+Lexus LS 430 4dr,r,C,290,25,8
+Lexus LX 470,r,C,235,17,8
+Lexus RX 330,r,C,230,24,6
+Lexus SC 430 convertible 2dr,s,C,300,23,8
+Lincoln Aviator Ultimate,r,C,302,18,8
+Lincoln LS V6 Luxury 4dr,r,C,232,26,6
+Lincoln LS V6 Premium 4dr,r,C,232,26,6
+Lincoln LS V8 Sport 4dr,r,C,280,24,8
+Lincoln LS V8 Ultimate 4dr,r,C,280,24,8
+Lincoln Navigator Luxury,r,C,300,18,8
+Lincoln Town Car Signature 4dr,r,C,239,25,8
+Lincoln Town Car Ultimate 4dr,r,C,239,25,8
+Lincoln Town Car Ultimate L 4dr,r,C,239,25,8
+Mazda B2300 SX Regular Cab,r,C,143,29,4
+Mazda B4000 SE Cab Plus,r,C,207,19,6
+Mazda MPV ES,r,C,200,25,6
+Mazda MX-5 Miata convertible 2dr,s,C,142,28,4
+Mazda MX-5 Miata LS convertible 2dr,s,C,142,28,4
+Mazda RX-8 4dr automatic,s,C,197,25,-1
+Mazda RX-8 4dr manual,s,C,238,24,-1
+Mazda Tribute DX 2.0,r,C,130,25,4
+Mazda3 i 4dr,r,C,148,25,4
+Mazda3 s 4dr,r,C,160,25,4
+Mazda6 i 4dr,r,C,160,32,4
+Mercedes-Benz C230 Sport 2dr,r,C,189,30,4
+Mercedes-Benz C240,w,C,168,25,6
+Mercedes-Benz C240 4dr,r,C,168,25,6
+Mercedes-Benz C240 4dr,r,C,168,25,6
+Mercedes-Benz C32 AMG 4dr,r,C,349,21,6
+Mercedes-Benz C320 4dr,r,C,215,26,6
+Mercedes-Benz C320 4dr,r,C,215,27,6
+Mercedes-Benz C320 Sport 2dr,r,C,215,26,6
+Mercedes-Benz C320 Sport 4dr,r,C,215,26,6
+Mercedes-Benz CL500 2dr,r,C,302,24,8
+Mercedes-Benz CL600 2dr,r,C,493,19,12
+Mercedes-Benz CLK320 coupe 2dr (convertible),r,C,215,26,6
+Mercedes-Benz CLK500 coupe 2dr (convertible),r,C,302,22,8
+Mercedes-Benz E320,w,C,221,27,6
+Mercedes-Benz E320 4dr,r,C,221,27,6
+Mercedes-Benz E500,w,C,302,24,8
+Mercedes-Benz E500 4dr,r,C,302,20,8
+Mercedes-Benz G500,r,C,292,14,8
+Mercedes-Benz ML500,r,C,288,17,8
+Mercedes-Benz S430 4dr,r,C,275,26,8
+Mercedes-Benz S500 4dr,r,C,302,24,8
+Mercedes-Benz SL500 convertible 2dr,s,C,302,23,8
+Mercedes-Benz SL55 AMG 2dr,s,C,493,21,8
+Mercedes-Benz SL600 convertible 2dr,s,C,493,19,12
+Mercedes-Benz SLK230 convertible 2dr,s,C,192,29,4
+Mercedes-Benz SLK32 AMG 2dr,s,C,349,22,6
+Mercury Grand Marquis GS 4dr,r,C,224,25,8
+Mercury Grand Marquis LS Premium 4dr,r,C,224,25,8
+Mercury Grand Marquis LS Ultimate 4dr,r,C,224,25,8
+Mercury Marauder 4dr,r,C,302,23,8
+Mercury Monterey Luxury,r,C,201,23,6
+Mercury Mountaineer,r,C,210,21,6
+Mercury Sable GS,w,C,155,26,6
+Mercury Sable GS 4dr,r,C,155,27,6
+Mercury Sable LS Premium 4dr,r,C,201,26,6
+Mini Cooper,r,C,115,37,4
+Mini Cooper S,r,C,163,34,4
+Mitsubishi Diamante LS 4dr,r,C,205,25,6
+Mitsubishi Eclipse GTS 2dr,s,C,210,28,6
+Mitsubishi Eclipse Spyder GT convertible 2dr,s,C,210,28,6
+Mitsubishi Endeavor XLS,r,C,215,21,6
+Mitsubishi Galant ES 2.4L 4dr,r,C,160,21,4
+Mitsubishi Galant GTS 4dr,r,C,230,26,6
+Mitsubishi Lancer ES 4dr,r,C,120,26,4
+Mitsubishi Lancer Evolution 4dr,s,C,271,26,4
+Mitsubishi Lancer LS 4dr,r,C,120,26,4
+Mitsubishi Lancer OZ Rally 4dr auto,r,C,120,26,4
+Mitsubishi Lancer Sportback LS,w,C,160,26,4
+Mitsubishi Montero XLS,r,C,215,19,6
+Mitsubishi Outlander LS,r,C,160,27,4
+Nissan 350Z coupe 2dr,s,C,287,26,6
+Nissan 350Z Enthusiast convertible 2dr,s,C,287,26,6
+Nissan Altima S 4dr,r,C,175,26,4
+Nissan Altima SE 4dr,r,C,245,26,6
+Nissan Frontier King Cab XE V6,r,C,180,20,6
+Nissan Maxima SE 4dr,r,C,265,28,6
+Nissan Maxima SL 4dr,r,C,265,28,6
+Nissan Murano SL,w,C,245,25,6
+Nissan Pathfinder Armada SE,r,C,305,19,8
+Nissan Pathfinder SE,r,C,240,21,6
+Nissan Quest S,r,C,240,26,6
+Nissan Quest SE,r,C,240,25,6
+Nissan Sentra 1.8 4dr,r,C,126,35,4
+Nissan Sentra 1.8 S 4dr,r,C,126,35,4
+Nissan Sentra SE-R 4dr,r,C,165,28,4
+Nissan Titan King Cab XE,r,C,305,18,8
+Nissan Xterra XE V6,r,C,180,20,6
+Oldsmobile Alero GLS 2dr,r,C,170,29,6
+Oldsmobile Alero GX 2dr,r,C,140,32,4
+Oldsmobile Silhouette GL,r,C,185,26,6
+Pontiac Aztekt,r,C,185,26,6
+Pontiac Bonneville GXP 4dr,r,C,275,27,8
+Pontiac Grand Am GT 2dr,r,C,175,29,6
+Pontiac Grand Prix GT1 4dr,r,C,200,30,6
+Pontiac Grand Prix GT2 4dr,r,C,200,30,6
+Pontiac GTO 2dr,s,C,340,29,8
+Pontiac Montana,r,C,185,26,6
+Pontiac Montana EWB,r,C,185,24,6
+Pontiac Sunfire 1SA 2dr,r,C,140,33,4
+Pontiac Sunfire 1SC 2dr,r,C,140,33,4
+Pontiac Vibe,w,C,130,36,4
+Porsche 911 Carrera 4S coupe 2dr (convert),s,C,315,24,6
+Porsche 911 Carrera convertible 2dr (coupe),s,C,315,26,6
+Porsche 911 GT2 2dr,s,C,477,24,6
+Porsche 911 Targa coupe 2dr,s,C,315,26,6
+Porsche Boxster convertible 2dr,s,C,228,29,6
+Porsche Boxster S convertible 2dr,s,C,258,26,6
+Porsche Cayenne S,s,C,340,18,8
+Saab 9-3 Aero 4dr,r,C,210,28,4
+Saab 9-3 Aero convertible 2dr,r,C,210,30,4
+Saab 9-3 Arc convertible 2dr,r,C,210,29,4
+Saab 9-3 Arc Sport 4dr,r,C,210,28,4
+Saab 9-5 Aero,w,C,250,29,4
+Saab 9-5 Aero 4dr,r,C,250,29,4
+Saab 9-5 Arc 4dr,r,C,220,29,4
+Saturn Ion1 4dr,r,C,140,35,4
+Saturn L300 2,w,C,140,34,4
+Saturn L300-2 4dr,r,C,182,28,6
+Saturn lon2 4dr,r,C,140,35,4
+Saturn lon2 quad coupe 2dr,r,C,140,35,4
+Saturn lon3 4dr,r,C,140,35,4
+Saturn lon3 quad coupe 2dr,r,C,140,35,4
+Saturn VUE,r,C,143,26,4
+Scion xA 4dr hatch,r,C,108,38,4
+Scion xB,w,C,108,35,4
+Subaru Baja,r,C,165,28,4
+Subaru Forester X,r,C,165,28,4
+Subaru Impreza 2.5 RS 4dr,r,C,165,28,4
+Subaru Impreza WRX 4dr,r,C,227,27,4
+Subaru Impreza WRX STi 4dr,r,C,300,24,4
+Subaru Legacy GT 4dr,r,C,165,28,4
+Subaru Legacy L 4dr,r,C,165,28,4
+Subaru Outback,w,C,165,28,4
+Subaru Outback H6 4dr,r,C,212,26,6
+Subaru Outback H-6 VDC 4dr,r,C,212,26,6
+Subaru Outback Limited Sedan 4dr,r,C,165,27,4
+Suzuki Aeno S 4dr,r,C,155,31,4
+Suzuki Aerio LX 4dr,r,C,155,31,4
+Suzuki Aerio SX,w,C,155,29,4
+Suzuki Forenza EX 4dr,r,C,119,30,4
+Suzuki Forenza S 4dr,r,C,119,31,4
+Suzuki Verona LX 4dr,r,C,155,27,6
+Suzuki Vitara LX,r,C,165,22,6
+Suzuki XL-7 EX,r,C,185,22,6
+Toyota 4Runner SR5 V6,r,C,245,21,6
+Toyota Avalon XL 4dr,r,C,210,29,6
+Toyota Avalon XLS 4dr,r,C,210,29,6
+Toyota Camry LE 4dr,r,C,157,33,4
+Toyota Camry LE V6 4dr,r,C,210,29,6
+Toyota Camry Solara SE 2dr,r,C,157,33,4
+Toyota Camry Solara SE V6 2dr,r,C,225,29,6
+Toyota Camry Solara SLE V6 2dr,r,C,225,29,6
+Toyota Camry XLE V6 4dr,r,C,210,29,6
+Toyota Celica GT-S 2dr,r,C,180,33,4
+Toyota Corolla CE 4dr,r,C,130,40,4
+Toyota Corolla LE 4dr,r,C,130,40,4
+Toyota Corolla S 4dr,r,C,130,40,4
+Toyota Echo 2dr auto,r,C,108,39,4
+Toyota Echo 2dr manual,r,C,108,43,4
+Toyota Echo 4dr,r,C,108,43,4
+Toyota Highlander V6,r,C,230,24,6
+Toyota Land Cruiser,r,C,325,17,8
+Toyota Matrix XR,w,C,130,36,4
+Toyota MR2 Spyder convertible 2dr,s,C,138,32,4
+Toyota Prius 4dr (gas/electric),r,C,110,51,4
+Toyota RAV4,r,C,161,27,4
+Toyota Sequoia SR5,r,C,240,17,8
+Toyota Sienna CE,r,C,230,27,6
+Toyota Sienna XLE Limited,r,C,230,27,6
+Toyota Tacoma,r,C,142,27,4
+Toyota Tundra Access Cab V6 SR5,r,C,190,17,6
+Toyota Tundra Regular Cab V6,r,C,190,20,6
+Volkswagen Golf GLS 4dr,r,C,115,31,4
+Volkswagen GTI 1.8T 2dr hatch,r,C,180,31,4
+Volkswagen Jetta GL,w,C,115,30,4
+Volkswagen Jetta GLI VR6 4dr,r,C,200,30,6
+Volkswagen Jetta GLS TDI 4dr,r,C,100,46,4
+Volkswagen New Beetle GLS 1.8T 2dr,r,C,150,31,4
+Volkswagen New Beetle GLS convertible 2dr,r,C,115,30,4
+Volkswagen Passat GLS 1.8T,w,C,170,31,4
+Volkswagen Passat GLS 4dr,r,C,170,31,4
+Volkswagen Passat GLX V6 4MOTION 4dr,r,C,190,26,6
+Volkswagen Passat W8,w,C,270,25,8
+Volkswagen Passat W8 4MOTION 4dr,r,C,270,25,8
+Volkswagen Phaeton 4dr,r,C,335,25,8
+Volkswagen Phaeton W12 4dr,r,C,420,25,12
+Volkswagen Touareg V6,r,C,220,20,6
+Volvo C70 HPT convertible 2dr,r,C,242,26,5
+Volvo C70 LPT convertible 2dr,r,C,197,28,5
+Volvo S40 4dr,r,C,170,29,4
+Volvo S60 2.5 4dr,r,C,208,27,5
+Volvo S60 R 4dr,r,C,300,25,5
+Volvo S60 T5 4dr,r,C,247,28,5
+Volvo S80 2.5T 4dr,r,C,194,27,5
+Volvo S80 2.9 4dr,r,C,208,28,6
+Volvo S80 T6 4dr,r,C,268,26,6
+Volvo V40,w,C,170,29,4
+Volvo XC70,w,C,208,27,5
+Volvo XC90 T6,r,C,268,20,6

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Avi rubin & Ori aral</title>
+  <p align="center" > This is Bar chart to describe the dealer cost & retail price <br/>  </p>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <style type="text/css">
+  svg {
+    font: 10px sans-serif;
+    shape-rendering: crispEdges;
+  }
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+  }
+ 
+  path.domain {
+    stroke: none;
+  }
+ 
+  .y .tick line {
+    stroke: #ddd;
+  }
+  </style>
+
+</head>
+<body>
+<script type="text/javascript">
+
+// Setup svg using Bostock's margin convention
+ padding = 100; // space around the chart, not including labels
+var margin = {top: 20, right: 120, bottom: 35, left: 30};
+
+var width = 1700 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var svg = d3.select("body")
+  .append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+/* Data in strings like it would be if imported from a csv */
+
+
+/*
+CarType		RetailPrice		DealerCost
+Regular		29814.35918		27446.14286
+Sports.car	53387.06122		48473.16327
+SUV			34790.25		31625.35
+Wagon		28840.53333		26645.63333
+Minivan		27796.5			25355.5
+Pickup		24941.375		22616.75
+
+*/
+var data = [
+  { year: "Regular -Retail Price	 ", redDelicious: "29814.35918	", mcintosh: "0", oranges: "9", pears: "6" },
+  { year: "Regular -Dealer Cost	 ", redDelicious: "27446.14286	", mcintosh: "0", oranges: "9", pears: "6" },
+  
+  { year: "Sports Car -Retail Price", redDelicious: "53387.06122", mcintosh: "0", oranges: "9", pears: "4" },
+  { year: "Sports Car -Dealer Cost", redDelicious: "48473.16327", mcintosh: "0", oranges: "9", pears: "4" },
+  
+  { year: "SUV -Retail Price", redDelicious: "34790.25", mcintosh: "0", oranges: "8", pears: "2" },
+  { year: "SUV -Dealer Cost", redDelicious: "31625.35", mcintosh: "0", oranges: "8", pears: "2" },
+  
+  { year: "Wagon -Retail Price", redDelicious: "28840.53333", mcintosh: "0", oranges: "5", pears: "4" },
+  { year: "Wagon -Dealer Cost", redDelicious: "26645.63333", mcintosh: "0", oranges: "5", pears: "4" },
+  
+  { year: "Minivan -Retail Price", redDelicious: "27796.5	", mcintosh: "0", oranges: "5", pears: "4" },
+  { year: "Minivan -Dealer Cost", redDelicious: "25355.5", mcintosh: "0", oranges: "5", pears: "4" },
+  
+  { year: "Pickup -Retail Price", redDelicious: "24941.375", mcintosh: "0", oranges: "5", pears: "4" }, 
+  { year: "Pickup -Dealer Cost", redDelicious: "22616.75", mcintosh: "0", oranges: "5", pears: "4" }, 
+  
+];
+
+var parse = d3.time.format("%Y").parse;
+
+
+// Transpose the data into layers
+var dataset = d3.layout.stack()(["redDelicious", "mcintosh", "oranges", "pears"].map(function(fruit) {
+  return data.map(function(d) {
+    return {x: (d.year), y: +d[fruit] , Z: 0};
+  });
+}));
+
+
+// Set x, y and colors
+var x = d3.scale.ordinal()
+  .domain(dataset[0].map(function(d) { return d.x; }))
+  .rangeRoundBands([10, width-10], 0.02);
+  
+  var z = d3.scale.ordinal()
+  .domain(dataset[0].map(function(d) { return d.z; }));
+
+var y = d3.scale.linear()
+  .domain([0, d3.max(dataset, function(d) {  return d3.max(d, function(d) { return d.y0 + d.y; });  })])
+  .range([height, 0]);
+
+var colors = ["#de2d26", "#2ca25f","#2c000f","#27777","#27725f","#2c775f","#2ca35f"];
+
+
+// Define and draw axes
+var yAxis = d3.svg.axis()
+  .scale(y)
+  .orient("left")
+  .ticks(5) 
+  .tickSize(-width, 0, 0)
+  .tickFormat( function(d) { return d } );
+
+var xAxis = d3.svg.axis()
+  .scale(x)
+  .orient("bottom")
+;
+
+svg.append("g")
+  .attr("class", "y axis")
+  .call(yAxis);
+
+svg.append("g")
+  .attr("class", "x axis")
+  .attr("transform", "translate(0," + height + ")")
+  .call(xAxis);
+svg.append("text")
+    .attr("class", "y label")
+    .attr("text-anchor", "end")
+    .attr("y", 6)
+    .attr("dy", ".75em")
+    .attr("transform", "rotate(-90)")
+    .text("Price in Dollar [$]");
+
+// Create groups for each series, rects for each segment 
+var groups = svg.selectAll("g.cost")
+  .data(dataset)
+  .enter().append("g")
+  .attr("class", "cost")
+  .style("fill", function(d, i) { 
+   console.log(i);
+  return colors[1]; })
+  ;
+
+var rect = groups.selectAll("rect")
+  .data(function(d) { return d; })
+  .enter()
+  .append("rect")
+  .attr("x", function(d) { return x(d.x); })
+  .attr("y", function(d) { return y(d.y0 + d.y); })
+  .attr("Z", function(d) { return y(d.x ); })
+  .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); })
+  .attr("width", x.rangeBand())
+  .on("mouseover", function(d) { 
+  
+  //console.log(d);
+              d3.select(this)
+            	.attr("fill",  function(d) { return colors[4]; });
+  tooltip.style("display", null);
+  })
+  .on("mouseout", function() {
+
+  d3.select(this)
+            	.attr("fill",  function(d) { return colors[1]; });
+  tooltip.style("display", "none"); })
+  .on("mousemove", function(d) {
+    var xPosition = d3.mouse(this)[0] ;
+    var yPosition = d3.mouse(this)[1] -  55;
+    tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+    tooltip.select("text").html( calculateText(d));
+	
+  });
+  
+  
+//  "total Cost: " +d.y + " " + d.y0
+function calculateText(d)
+{
+
+//console.log(d);
+
+if(d.y0 != 0)
+{
+total = d.y+d.y0;
+Profit = total-d.y0;
+return "Total = " +total +" $"+   "<be/> <be/> " + " Profit = "+Profit +" $";
+}
+
+return "Price : "+ d.y +" $";
+
+} 
+ /*
+// Draw legend
+var legend = svg.selectAll(".legend")
+  .data(colors)
+  .enter().append("g")
+  .attr("class", "legend")
+  .attr("transform", function(d, i) { return "translate(30," + i * 19 + ")"; });
+ 
+legend.append("rect")
+  .attr("x", width - 18)
+  .attr("width", 18)
+  .attr("height", 18)
+  .style("fill", function(d, i) {return colors.slice().reverse()[i];});
+
+legend.append("text")
+  .attr("x",  0)
+  .attr("y", 0)
+  .attr("dy", ".35em")
+  .style("text-anchor", "start")
+  .text(function(d, i) { 
+    switch (i) {
+      //case 0: return "Profit";
+      //case 1: return "Dealer Cost";
+    }
+  });
+
+*/
+// Prep the tooltip bits, initial display is hidden
+var tooltip = svg.append("g")
+  .attr("class", "tooltip")
+  .style("display", "none");
+    
+tooltip.append("rect")
+  .attr("width", 0)
+  .attr("height", 20)
+  .attr("fill", "white")
+  .style("opacity", 0.5);
+
+tooltip.append("text")
+  .attr("x",0 )
+  .attr("dy", "1.2em")
+  .style("text-anchor", "middle")
+  .attr("font-size", "14px")
+  .attr("font-weight", "bold");
+  
+// Text
+
+
+</script>
+</body>
+</html>
